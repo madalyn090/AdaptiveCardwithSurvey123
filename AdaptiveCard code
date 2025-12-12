@@ -1,0 +1,63 @@
+# Adaptive card for survey 123, attributes from the survey I was pulling to post in Microsoft Teams
+{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "Container",
+      "style": "emphasis",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "New Request Submitted",
+          "weight": "Bolder",
+          "size": "Medium"
+        },
+        {
+          "type": "TextBlock",
+          "text": "Requester's Name: @{triggerOutputs()?['body/feature/attributes/full_name']}",
+          "wrap": true
+        },
+        {
+          "type": "TextBlock",
+          "text": "Organization: @{triggerOutputs()?['body/feature/attributes/organization_name']}",
+          "wrap": true
+        },
+
+    {
+      "type": "Container",
+      "isVisible": "@{if(empty(triggerOutputs()?['body/feature/attributes/organization_location_full_stre']), false, true)}",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "Location: @{triggerOutputs()?['body/feature/attributes/organization_location_full_stre']}",
+          "wrap": true
+        }]},
+    {
+      "type": "Container",
+      "isVisible": "@{if(empty(triggerOutputs()?['body/feature/attributes/what_is_the_level_of_urgency_fo']), false, true)
+}",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "Urgency: @{triggerOutputs()?['body/feature/attributes/what_is_the_level_of_urgency_fo']}",
+          "wrap": true
+        }]},
+    {
+      "type": "Container",
+      "isVisible": "@{if(empty(triggerOutputs()?['body/feature/attributes/please_provide_a_brief_descript']), false, true)
+}",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "Description: @{triggerOutputs()?['body/feature/attributes/please_provide_a_brief_descript']} ",
+          "wrap": true
+        }]},
+{
+"type": "TextBlock", 
+"text": "See more on the [dashboard](Insert Link) and [Survey123](Insert Link)",
+        "wrap": true
+}
+]}
+  ],
+  "version": "1.4"
+}
